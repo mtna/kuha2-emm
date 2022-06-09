@@ -20,6 +20,6 @@ python3 emm-harvester.py -o /metadata 2>>/var/log/kuha2/kuha2-update_$LOGSTAMP.l
 # Update Kuha2 metadata (studies only)
 NOW=$(date +'%Y-%m-%d %H:%M:%S,%3N')
 echo >&1 "$NOW $ME: Updating Kuha2 metadata"
-kuha_sync --document-store-url http://localhost:6001/v0 --collection studies /metadata 2>>/var/log/kuha2/kuha2-sync_$LOGSTAMP.log 
+python3 -m kuha_client.kuha_upsert --document-store-url http://localhost:6001/v0 --remove-absent --collection studies /metadata 2>>/var/log/kuha2/kuha2-update_$LOGSTAMP.log 
 NOW=$(date +'%Y-%m-%d %H:%M:%S,%3N')
-echo >&1 "$NOW $ME: Kuha2 sync completed"
+echo >&1 "$NOW $ME: Kuha2 update completed"

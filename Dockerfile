@@ -10,7 +10,7 @@
 # docker container exec -it kuha2 bash
 #
 #
-FROM mtna/kuha2
+FROM mtna/kuha2:latest
 
 LABEL maintainer="mtna@mtna.us"
 
